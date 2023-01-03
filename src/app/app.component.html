@@ -1,19 +1,32 @@
 <div class="container">
-  <div class="main-container">
+  <div class="d-flex header">
     <div class="col">
       <h2 class="d-flex justify-content-center">
         ЋИРИЛИЦА
       </h2>
-      <div *ngFor="let letter of cyrilicAlphabet" class="d-flex justify-content-center" >
-        <span class="letter">{{letter}}</span>
-      </div>
+      <span class="d-flex justify-content-center">{{selectedCyrilicIndex}}</span>
+      <h4  class="d-flex justify-content-center" *ngIf="selectedCyrilicIndex!=-1 && selectedLatinIndex!=-1 && selectedCyrilicIndex!=selectedLatinIndex">НИЈЕ ДОБРО !</h4>
+      <h4  class="d-flex justify-content-center" *ngIf="selectedCyrilicIndex!=-1 && selectedLatinIndex!=-1 && selectedCyrilicIndex==selectedLatinIndex">ДОБРО!</h4>
     </div>
     <div class="col">
       <h2 class="d-flex justify-content-center">
         LATINICA
       </h2>
-      <div *ngFor="let letter of latinAlphabet"  class="d-flex justify-content-center">
-        <span class="letter">{{letter}}</span>
+      <span class="d-flex justify-content-center">{{selectedLatinIndex}}</span>
+      <h4 class="d-flex justify-content-center" *ngIf="selectedCyrilicIndex!=-1 && selectedLatinIndex!=-1 && selectedCyrilicIndex!=selectedLatinIndex">NIJE DOBRO!</h4>
+      <h4 class="d-flex justify-content-center" *ngIf="selectedCyrilicIndex!=-1 && selectedLatinIndex!=-1 && selectedCyrilicIndex==selectedLatinIndex">DOBRO!</h4>
+    </div>
+  </div>
+  <div class="main-container">
+    <div class="col">
+      
+      <div *ngFor="let letter of cyrilicAlphabet; let i = index" class="d-flex justify-content-center" >
+        <span class="letter" (click)="selectCyrilic(i)" [ngClass]="{'selected' : i==selectedCyrilicIndex}">{{letter}}</span>
+      </div>
+    </div>
+    <div class="col">
+      <div *ngFor="let letter of latinAlphabet; let i = index"  class="d-flex justify-content-center">
+        <span class="letter" (click)="selectLatin(i)" [ngClass]="{'selected' : i==selectedLatinIndex}">{{letter}}</span>
       </div>
     </div>
   </div>
