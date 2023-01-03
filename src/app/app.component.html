@@ -4,7 +4,8 @@
       <h2 class="d-flex justify-content-center">
         ЋИРИЛИЦА
       </h2>
-      <span class="d-flex justify-content-center">{{selectedCyrilicIndex}}</span>
+      <!-- <span class="d-flex justify-content-center">{{selectedCyrilicIndex}}</span> -->
+      <span class="d-flex justify-content-center" *ngIf="selectedCyrilicIndex!=-1">{{cyrilicWords[selectedCyrilicIndex]}}</span>
       <h4  class="d-flex justify-content-center" *ngIf="selectedCyrilicIndex!=-1 && selectedLatinIndex!=-1 && selectedCyrilicIndex!=selectedLatinIndex">НИЈЕ ДОБРО !</h4>
       <h4  class="d-flex justify-content-center" *ngIf="selectedCyrilicIndex!=-1 && selectedLatinIndex!=-1 && selectedCyrilicIndex==selectedLatinIndex">ДОБРО!</h4>
     </div>
@@ -12,7 +13,8 @@
       <h2 class="d-flex justify-content-center">
         LATINICA
       </h2>
-      <span class="d-flex justify-content-center">{{selectedLatinIndex}}</span>
+      <!-- <span class="d-flex justify-content-center">{{selectedLatinIndex}}</span> -->
+      <span class="d-flex justify-content-center" *ngIf="selectedCyrilicIndex!=-1">{{latinWords[selectedLatinIndex]}}</span>
       <h4 class="d-flex justify-content-center" *ngIf="selectedCyrilicIndex!=-1 && selectedLatinIndex!=-1 && selectedCyrilicIndex!=selectedLatinIndex">NIJE DOBRO!</h4>
       <h4 class="d-flex justify-content-center" *ngIf="selectedCyrilicIndex!=-1 && selectedLatinIndex!=-1 && selectedCyrilicIndex==selectedLatinIndex">DOBRO!</h4>
     </div>
@@ -21,12 +23,20 @@
     <div class="col">
       
       <div *ngFor="let letter of cyrilicAlphabet; let i = index" class="d-flex justify-content-center" >
-        <span class="letter" (click)="selectCyrilic(i)" [ngClass]="{'selected' : i==selectedCyrilicIndex}">{{letter}}</span>
+        <span class="letter" (click)="selectCyrilic(i)" [ngClass]="
+        {'selected' : i==selectedCyrilicIndex && selectedLatinIndex==-1,
+        'wrong' : i==selectedCyrilicIndex  && selectedLatinIndex!=-1 && selectedCyrilicIndex!=selectedLatinIndex,
+        'right' : i==selectedCyrilicIndex && selectedLatinIndex!=-1 && selectedCyrilicIndex==selectedLatinIndex}
+        ">{{letter}}</span>
       </div>
     </div>
     <div class="col">
       <div *ngFor="let letter of latinAlphabet; let i = index"  class="d-flex justify-content-center">
-        <span class="letter" (click)="selectLatin(i)" [ngClass]="{'selected' : i==selectedLatinIndex}">{{letter}}</span>
+        <span class="letter" (click)="selectLatin(i)"  [ngClass]="
+        {'selected' : i==selectedLatinIndex && selectedCyrilicIndex==-1,
+        'wrong' : i==selectedLatinIndex  && selectedCyrilicIndex!=-1 && selectedCyrilicIndex!=selectedLatinIndex,
+        'right' : i==selectedLatinIndex && selectedCyrilicIndex!=-1 && selectedCyrilicIndex==selectedLatinIndex}
+        ">{{letter}}</span>
       </div>
     </div>
   </div>

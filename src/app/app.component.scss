@@ -22,6 +22,18 @@
 }
 
 .selected {
+    background-color: blue;
+    color: white;
+    border-color: blue;
+}
+
+.wrong {
+    background-color: red;
+    color: white;
+    border-color: red;
+}
+
+.right {
     background-color: green;
     color: white;
     border-color: green;
