@@ -1,3 +1,21 @@
-<div *ngFor="let letter of cyrilicAlphabet" >
-  {{letter}}
+<div class="container">
+  <div class="main-container">
+    <div class="col">
+      <h2 class="d-flex justify-content-center">
+        ЋИРИЛИЦА
+      </h2>
+      <div *ngFor="let letter of cyrilicAlphabet" class="d-flex justify-content-center" >
+        <span class="letter">{{letter}}</span>
+      </div>
+    </div>
+    <div class="col">
+      <h2 class="d-flex justify-content-center">
+        LATINICA
+      </h2>
+      <div *ngFor="let letter of latinAlphabet"  class="d-flex justify-content-center">
+        <span class="letter">{{letter}}</span>
+      </div>
+    </div>
+  </div>
 </div>
+
