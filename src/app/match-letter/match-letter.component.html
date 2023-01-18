@@ -18,8 +18,11 @@
         <h4  class="d-flex justify-content-center" *ngIf="selectedLatinIndex!=-1">{{latinAlphabet[selectedLatinIndex]}}</h4>
         <span class="d-flex justify-content-center" *ngIf="selectedLatinIndex!=-1">{{latinWords[selectedLatinIndex]}}</span>
         <h4 class="d-flex justify-content-center" *ngIf="selectedCyrilicIndex!=-1 && selectedLatinIndex!=-1 && selectedCyrilicIndex!=selectedLatinIndex">NIJE DOBRO!</h4>
-        <h4 class="d-flex justify-content-center" *ngIf="selectedCyrilicIndex!=-1 && selectedLatinIndex!=-1 && selectedCyrilicIndex==selectedLatinIndex">DOBRO!</h4>
-      </div>
+        <span class="d-flex justify-content-center" *ngIf="selectedCyrilicIndex!=-1 && selectedLatinIndex!=-1 && selectedCyrilicIndex==selectedLatinIndex">
+            <h4>DOBRO!</h4>
+            <button type="button" (click)="selectLatin()" class="btn btn-success d-flex justify-content-center" ><i class="bi bi-shuffle"></i></button>
+        </span>
+    </div>
     </div>
     <div class="main-container">
       <div class="col d-flex flex-wrap">
@@ -31,16 +34,7 @@
           'right' : i==selectedCyrilicIndex && selectedLatinIndex!=-1 && selectedCyrilicIndex==selectedLatinIndex}
           ">{{letter}}</span>
         </div>
-      </div>
-      <!-- <div class="col d-flex flex-wrap">
-        <div *ngFor="let letter of latinAlphabet; let i = index"  class="d-flex justify-content-center">
-          <span class="letter" (click)="selectLatin(i)"  [ngClass]="
-          {'selected' : i==selectedLatinIndex && selectedCyrilicIndex==-1,
-          'wrong' : i==selectedLatinIndex  && selectedCyrilicIndex!=-1 && selectedCyrilicIndex!=selectedLatinIndex,
-          'right' : i==selectedLatinIndex && selectedCyrilicIndex!=-1 && selectedCyrilicIndex==selectedLatinIndex}
-          ">{{letter}}</span>
-        </div>
-      </div> -->
+    </div>
     </div>
   </div>
   

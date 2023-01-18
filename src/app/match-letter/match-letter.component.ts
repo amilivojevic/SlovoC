@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { cyrilicAlphabet, latinAlphabet } from '../alphabet';
+import { getRandomInt } from '../common';
 import { cyrilicWords, latinWords } from '../words';
 
 @Component({
@@ -16,6 +17,10 @@ export class MatchLetterComponent {
   selectedCyrilicIndex: number = -1;
   selectedLatinIndex: number = -1;
 
+  ngOnInit() {
+    this.selectLatin();
+  }
+
   selectCyrilic(index: number) {
     if (this.selectedCyrilicIndex == index) {
       this.selectedCyrilicIndex = -1;
@@ -24,11 +29,8 @@ export class MatchLetterComponent {
     }
   }
 
-  selectLatin(index: number) {
-    if (this.selectedLatinIndex == index) {
-      this.selectedLatinIndex = -1;
-    } else {
-      this.selectedLatinIndex = index;
-    }
+  selectLatin() {
+    this.selectedCyrilicIndex = -1;
+    this.selectedLatinIndex = getRandomInt(30);
   }
 }
