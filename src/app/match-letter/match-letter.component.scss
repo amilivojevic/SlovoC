@@ -1,0 +1,48 @@
+.match-letter-header {
+    background-color: cadetblue !important;
+}
+
+.container {
+    margin-top: 5%;
+}
+
+.header {
+    min-height: 170px;
+    background-color: rgb(215, 207, 207);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.letter {
+    font-size: 30px;
+    border: 2px solid grey;
+    border-radius: 5px;
+    margin: 3px;
+    padding: 5px;
+    min-width: 50px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: blue;
+    color: white;
+    border-color: blue;
+}
+
+.wrong {
+    background-color: red;
+    color: white;
+    border-color: red;
+}
+
+.right {
+    background-color: green;
+    color: white;
+    border-color: green;
+}
+
+.main-container {
+    display: flex;
+}
