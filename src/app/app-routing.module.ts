@@ -6,6 +6,7 @@ import { MatchLetterComponent } from './match-letter/match-letter.component';
 
 const routes: Routes = [
   { path: '', component: MatchLetterDefaultComponent },
+  { path: 'two-alphabets', component: MatchLetterDefaultComponent },
   { path: 'match-letter', component: MatchLetterComponent }
 ];
 
